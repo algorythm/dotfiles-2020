@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+function perform_health_check() {
+  name="$1"
+  environment="$2"
+
+  hcurl="https://${environment}/hc"
+  status="$(curl -s ${hcurl})"
+
+  echo -e "${name}\t${status}"
+}
+
+perform_health_check "eu-nn-uat" "api-uat.novo-connect.eu" &
+perform_health_check "eu-nn-prod" "api.novo-connect.eu" &
+perform_health_check "us-nni-uat" "api-uat.novo-connect.com" &
+perform_health_check "us-nni-prod" "api.novo-connect.com" &
+perform_health_check "eu-connect-prod" "dev-api.consensus-connect.com" &
+perform_health_check "eu-connect-prod" "api.consensus-connect.com" &
+
+wait
+
