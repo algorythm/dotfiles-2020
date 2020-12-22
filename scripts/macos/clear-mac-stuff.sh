@@ -2,3 +2,4 @@
 
 # Remove all icons on the Dock
 defaults write com.apple.dock persistent-apps -array
+killall Dock
