@@ -13,29 +13,29 @@ while true; do sudo -n true; sleep 60l kill -0 "$$" || exit; done 2>/dev/null &
 ##################################################
 
 # System Preferences > General > Appearance
-defaults write -globalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
+# defaults write -globalDomain AppleInterfaceStyleSwitchesAutomatically -bool false
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
 # Set sidebar icon size to medium
 ##defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
 
-# Expand save panel by default
-defaults write NSGlobalDomain NSNavPanelExpandedStateForsaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForsaveMode2 -bool true
+# # Expand save panel by default
+# defaults write NSGlobalDomain NSNavPanelExpandedStateForsaveMode -bool true
+# defaults write NSGlobalDomain NSNavPanelExpandedStateForsaveMode2 -bool true
 
-# Expand print panel by default
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+# # Expand print panel by default
+# defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+# defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
-# Save to disk (not to iCloud) by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+# # Save to disk (not to iCloud) by default
+# defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Automatically quit printer app once the print jobs completes
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# Disable resume system-wide
-defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+# # Disable resume system-wide
+# defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
 
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
@@ -57,14 +57,14 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 ##################################################
 
 ### Trackpad
-# Enable tap to click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# # Enable tap to click
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+# defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+# defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Enable 3-finger drag
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+# # Enable 3-finger drag
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+# defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 
 ### Keyboard
 # Enable full keyboard access for all controls
@@ -78,7 +78,7 @@ defaults write NSGlobalDomain AppleMeasurementUnits -string 'Centimeters'
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Show language menu in the top right corner of the boot screen
-sudo defaults write /Library
+# sudo defaults write /Library
 
 # TODO:
 # https://apple.stackexchange.com/questions/27055/how-can-i-manipulate-several-security-settings-from-terminal
@@ -103,7 +103,7 @@ defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Show icons for hard drives, servers, and removable media on the desktop
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+# defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
@@ -157,8 +157,8 @@ defaults write com.apple.dock show-process-indicators -bool true
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
 
-# Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
+# # Speed up Mission Control animations
+# defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
