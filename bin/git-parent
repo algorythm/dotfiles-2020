@@ -1,0 +1,11 @@
+#!/bin/sh
+commit=${1:?missing commit hash}; shift
+git log --merges --format='%H %p' | while read h a b
+do
+	if git log --format=%H "$a..$b" | grep -q "^$commit"
+	then
+		echo "$h"
+		exit 0
+	fi
+done
+exit 1
