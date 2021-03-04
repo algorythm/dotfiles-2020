@@ -5,6 +5,10 @@ if [[ ! -x "$(command -v brew)" ]]; then
     exit 1
 fi
 
+brew install neovim
+brew install tmux
+brew install openssh
+
 #####
 # Install primary applications
 #####
@@ -32,10 +36,5 @@ brew cleanup
 
 mas install 803453959 # Slack
 mas install 823766827 # OneDrive
-mas install 497799835 # XCode
-# Accept XCode License
-sudo xcodebuild -license accept
 mas install 512617038 # Snappy
 mas install 937984704 # Amphetamine
-
-
