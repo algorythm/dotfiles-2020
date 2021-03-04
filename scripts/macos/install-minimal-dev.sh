@@ -8,24 +8,24 @@ fi
 #####
 # Install primary applications
 #####
-brew cask install alacritty
-brew cask install visual-studio-code
-brew cask install google-chrome
-brew cask install jetbrains-toolbox
-brew cask install alfred
-brew cask install spectacle
-brew cask install bartender
-brew cask install google-backup-and-sync
-brew cask install 1password
-brew cask install docker
+brew install --cask alacritty
+brew install --cask visual-studio-code
+brew install --cask google-chrome
+brew install --cask jetbrains-toolbox
+brew install --cask alfred
+brew install --cask spectacle
+brew install --cask bartender
+brew install --cask google-backup-and-sync
+brew install --cask 1password
+brew install --cask docker
 brew install neovim
 brew install p7zip
 
-brew cask install discord
-brew cask install spotify
-brew cask install steam
-brew cask install vlc
-brew cask install teamviewer
+brew install --cask discord
+brew install --cask spotify
+brew install --cask steam
+brew install --cask vlc
+brew install --cask teamviewer
 
 brew install mas
 brew cleanup
