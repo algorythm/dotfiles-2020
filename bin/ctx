@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+BASE=`dirname $(dirname $0)`
+SCRIPT_PATH="${BASE}/scripts/csv-to-excel"
+PYTHON="${SCRIPT_PATH}/.venv/bin/python3"
+echo $BASE
+
+SCRIPT_NAME="${SCRIPT_PATH}/csv-to-excel.py"
+$PYTHON ${SCRIPT_NAME} $@
+
