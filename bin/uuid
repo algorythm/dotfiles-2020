@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+
+import uuid
+import argparse
+
+def gen_uuids(count=1):
+    if count < 1:
+        raise Exception('Could should be more than 0')
+
+    return [uuid.uuid4() for _ in  range(count)]
+
+def main(args):
+    uuids = gen_uuids(args.count)
+    for x in uuids:
+        print(str(x))
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Generate UUIDv4s')
+    parser.add_argument('count', type=int, default=1, help='Amount of UUIDv4s to generate')
+
+    args = parser.parse_args()
+    main(args)
+
