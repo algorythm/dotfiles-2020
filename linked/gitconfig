@@ -1,40 +1,60 @@
+[init]
+  defaultBranch = main
 [core]
-    editor = nvim
-    autoclrf = input
+  editor = nvim
+  autoclrf = input
 [color]
-    ui = true
-    diff = auto
-    status = auto
-    branch = auto
+  ui = true
+  diff = auto
+  status = auto
+  branch = auto
 [commit]
-	gpgsign = true
+  gpgsign = true
 [gpg]
-	program = gpg
+  program = gpg
 
 [alias]
-    aa = add -Av
-    a = add -v
-    ap = add --patch
-    ci = commit
-    br = branch
-    co = checkout
-    stm = status --short
-    cp = cherry-pick
-    ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    dd = diff --color-words --ignore-space-change
-    ddc = dd --cached
-    aac = !git add -Av && git commit
-    branch-name = "!git rev-parse --abbrev-ref HEAD"
-    publish = "!git push -u origin $(git branch-name)"
-    pushlish = publish
-    version = "describe --abbrev=0"
-    v = version
-    first = "!git log master..$(branch-name) --oneline | tail -1 | cut -d ' ' -f1"
-    log-this = "ll master..$(branch-name)"
-    lt = log-this
-    rebase-this = "!git rebase -i --autosquash $(git first)^"
-    change-log = "!git log $(git describe --abbrev=0)..master --oneline --merges --format=format:'%s'"
-    cl = change-log
-    rbt = rebase-this
-    rgm = rebase origin/master
-    root = rev-parse --show-toplevel
+  aa = add -Av
+  a = add -v
+  ap = add --patch
+  ci = commit
+  br = branch
+  co = checkout
+  stm = status --short
+  cp = cherry-pick
+  ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+  last = log --abbrev-commit --decorate -1
+  last-hash = last --pretty=format:"%h"
+  lm = log --oneline --merges --abbrev-commit --decorate --format=format:'%C(white italic dim)%h%d%C(reset) %C(bold blue)%ar%C(reset): %C(brightwhite)%s%C(reset)'
+  dd = diff --color-words --ignore-space-change
+  ddc = dd --cached
+  aac = !git add -Av && git commit
+  acan = !git add -Av && git commit --amend --no-edit
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  publish = "!git push -u origin $(git branch-name)"
+  pushlish = publish
+  version = "describe --abbrev=0"
+  v = version
+  first = "!git log master..$(branch-name) --oneline | tail -1 | cut -d ' ' -f1"
+  log-this = "ll master..$(branch-name)"
+  lt = log-this
+  rebase-this = "!git rebase -i --autosquash $(git first)^"
+  change-log = "!git log $(git describe --abbrev=0)..$(git rev-parse --abbrev-ref HEAD) --oneline --merges --format=format:'%s'"
+  push-latest-tag = "!git push origin $(git describe --abbrev=0)"
+  plt = push-latest-tag
+  pf = push --force-with-lease
+  pl = pull --rebase --autostash
+  cl = change-log
+  mh = log --merges --date=short --pretty=format:'%h %ad | %s'
+  rbt = rebase-this
+  rbm = rebase origin/master
+  root = rev-parse --show-toplevel
+[pull]
+  rebase = true
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+[include]
+  path = ~/.config/git/user
