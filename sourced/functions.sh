@@ -28,3 +28,11 @@ fzf-git-checkout() {
         git checkout $branch;
     fi
 }
+
+manpdf() {
+  man -t "${1}" | open -f -a Preview
+}
+
+take() {
+  mkdir -p "$@" && cd "$@"
+}
