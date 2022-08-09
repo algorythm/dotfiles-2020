@@ -31,12 +31,13 @@
   aac = !git add -Av && git commit
   acan = !git add -Av && git commit --amend --no-edit
   branch-name = "!git rev-parse --abbrev-ref HEAD"
-  publish = "!git push -u origin $(git branch-name)"
+  publish = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+  mr = "!git push -o merge_request.create -o marge_request.label='team::wannacry' -o merge_request.assign=_algorythm"
   pushlish = publish
   version = "describe --abbrev=0"
   v = version
-  first = "!git log master..$(branch-name) --oneline | tail -1 | cut -d ' ' -f1"
-  log-this = "ll master..$(branch-name)"
+  first = "!git log master..$(git branch-name) --oneline | tail -1 | cut -d ' ' -f1"
+  log-this = "ll master..$(git branch-name)"
   lt = log-this
   rebase-this = "!git rebase -i --autosquash $(git first)^"
   change-log = "!git log $(git describe --abbrev=0)..$(git rev-parse --abbrev-ref HEAD) --oneline --merges --format=format:'%s'"
@@ -56,5 +57,11 @@
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
+[blame]
+  ignoreRevsFile = .git-blame-ignore-revs
 [include]
   path = ~/.config/git/user
+[includeIf "gitdir:~/dev/consensus/"]
+  path = ~/.config/git/consensus
+[rerere]
+	enabled = true
