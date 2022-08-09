@@ -6,3 +6,6 @@ alias per="open -a postman.app &"
 alias cdr="cd `git rev-parse --show-toplevel`"
 
 [[ ! -x "$(command -v nvim)" ]]       || alias vim="nvim"
+
+alias gb='fzf-git-branch'
+alias gco='fzf-git-checkout'
