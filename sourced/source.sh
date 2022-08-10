@@ -8,3 +8,9 @@ fi
 
 # add kubectl auto completion
 [[ ! -x "$(command -v kubectl)" ]]    || source <(kubectl completion zsh)
+
+source $HOME/.cargo/env
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+[[ -x "$(command -v glab)" ]] && eval $(glab completion -s zsh)
