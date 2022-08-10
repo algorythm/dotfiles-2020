@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+alias k="kubectl"
+
 # stupid joke about Postmand Per
 alias per="open -a postman.app &"
 # cd to root of git repository

@@ -92,8 +92,6 @@ ZSH_AUTOSUGGEST_USE_ASYNC="1"
 
 
 # User configuration
-export VISUAL="nvim"
-export EDITOR="${VISUAL}"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -118,26 +116,11 @@ export EDITOR="${VISUAL}"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export GPG_TTY=`tty`
-for f in /Users/awo/dotfiles-2020/sourced/*; do source $f; done
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source $HOME/.cargo/env
-path+=("${HOME}/dotfiles-2020/bin")
-export PATH
-alias gpn="git publish"
 
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-alias k="kubectl"
+for f in /Users/awo/dotfiles-2020/sourced/*; do source $f; done
 
-setazsub() {
-  name=$1
-  subscriptionId=$(az account list --all | jq ".[] | select(.name == '${name}' and .state == 'Enabled' | .id" --raw-output)
-  echo "Switching to ${1}: ${subscriptionId}"
-  az account set --subscription ${subscriptionId}
-}
-export PATH=$PATH:$HOME/.arkade/bin
